@@ -1,0 +1,86 @@
+/* General Styles */
+body {
+    font: 15px Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    padding: 0;
+    margin: 0;
+    background-image: url("picture/pic4.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Container */
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Header */
+header {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 30px 0;
+    border-bottom: 3px solid red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo/Branding */
+header #branding {
+    font-size: 30px;
+    font-weight: bold;
+    padding-left: 20px;
+}
+
+/* Navbar (Horizontal, Left-Side) */
+.navbar {
+    margin-left: 20px; /* Adds space from the left edge */
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Align items horizontally */
+}
+
+.navbar ul li {
+    margin: 0 20px; /* Space between items */
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px;
+    position: relative;
+    transition: 0.3s;
+}
+
+/* Hover Effect - Underline */
+.navbar ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background: orangered;
+    transition: width 0.3s ease-in-out;
+}
+
+.navbar ul li a:hover::after {
+    width: 100%;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    margin-top: 20px;
+}

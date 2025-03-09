@@ -1,0 +1,154 @@
+/* General Styles for all pages (existing global CSS rules) */
+
+/* About Page */
+.about-page {
+    background-color: rgba(255, 255, 255, 0.8); /* Light background for readability */
+    padding: 40px 0;
+    background-image: url("picture/about-bg.jpg"); /* Optional background image */
+    background-size: cover;
+    background-position: center;
+    color: #333;
+}
+
+.about-page h2, .about-page h3 {
+    text-align: center;
+    color: #444;
+}
+
+.about-page h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.about-page h3 {
+    font-size: 1.8em;
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+
+.about-page .team-member {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.about-page .team-member img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    margin-right: 20px;
+    object-fit: cover;
+}
+
+.about-page .team-member h4 {
+    font-size: 1.2em;
+    margin-top: 10px;
+    color: #555;
+}
+
+.about-page .team-member p {
+    font-size: 1em;
+    color: #777;
+    margin-top: 5px;
+}
+
+.about-page ul {
+    list-style: none;
+    padding: 0;
+    font-size: 1.1em;
+}
+
+.about-page ul li {
+    margin-bottom: 10px;
+}
+
+.about-page a {
+    color: #f88;
+    text-decoration: none;
+}
+
+.about-page a:hover {
+    text-decoration: underline;
+}
+
+/* Contact Page */
+.contact-page {
+    background-color: rgba(240, 240, 240, 0.9); /* Slightly different background for contact page */
+    padding: 40px 0;
+    background-image: url("picture/contact-bg.jpg"); /* Optional background image */
+    background-size: cover;
+    background-position: center;
+    color: #333;
+}
+
+.contact-page h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+
+.contact-page form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.8); /* Light background for form */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-page form label {
+    font-size: 1.1em;
+    color: #444;
+}
+
+.contact-page form input,
+.contact-page form textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.contact-page form input:focus,
+.contact-page form textarea:focus {
+    border-color: #f88;
+    outline: none;
+}
+
+.contact-page form button {
+    background-color: #f88;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.contact-page form button:hover {
+    background-color: #c74;
+}
+
+.contact-page p {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.contact-page p a {
+    color: #f88;
+    text-decoration: none;
+}
+
+.contact-page p a:hover {
+    text-decoration: underline;
+}

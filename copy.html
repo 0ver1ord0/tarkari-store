@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Total Cost Calculator</title>
+</head>
+<body>
+    <h1>Product Price Calculator</h1>
+    <div>
+        <p><strong>Product Name:</strong> Organic Apples</p>
+        <p><strong>Price per kilogram:</strong> $3</p>
+        <label for="quantity">Enter Quantity (in kilograms): </label>
+        <input type="number" id="quantity" placeholder="e.g., 5">
+        <button onclick="calculateTotal()">Calculate Total</button>
+    </div>
+
+    <p id="result"></p>
+
+    <script>
+        function calculateTotal() {
+            const pricePerKg = 3; // Price per kilogram
+            const quantity = document.getElementById("quantity").value; // Get the quantity from user input
+            const totalCost = pricePerKg * quantity; // Calculate the total cost
+            document.getElementById("result").innerHTML = 
+                "Total Cost: $" + totalCost.toFixed(2); // Display the result
+        }
+    </script>
+</body>
+</html>
