@@ -30,3 +30,6 @@ CREATE TABLE Cart (
     FOREIGN KEY (vegetable_id) REFERENCES Vegetables(vegetable_id),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+ALTER TABLE Vegetables ADD COLUMN image VARCHAR(255) NULL;
+

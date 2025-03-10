@@ -21,6 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
+        
         // Check password
         if (password_verify($password, $user['password'])) {
             // Start the session and store user information
@@ -28,8 +29,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['username'] = $user['username'];
             $_SESSION['role'] = $user['role'];  // Store user role (e.g., admin or user)
             
-            // Redirect to index.php
-            header("Location: index.php");
+            // Redirect based on role
+            if ($_SESSION['role'] == 'admin') {
+                // If the user is an admin, redirect to admin dashboard
+                header("Location: admin_dashboard.php"); // Or any admin page
+            } else {
+                // If the user is a regular user, redirect to the user dashboard
+                header("Location: user_dashboard.php"); // Or any user page
+            }
             exit(); // Don't forget to exit to prevent further script execution
         } else {
             echo "Incorrect password!";
@@ -66,4 +73,3 @@ $mysqli->close();
     </div>
 </body>
 </html>
-
