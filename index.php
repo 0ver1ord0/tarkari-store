@@ -4,6 +4,14 @@ include('db.php');  // Include database connection
 include('header.php');  // Include your header file
 ?>
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Section</title>
+    <!-- Ensure products.css is loaded after styles.css -->
+    <link rel="stylesheet" href="css/home.css?v=1.0">
+</head>
+
 <main>
     <section id="products">
         <h2>Available Products</h2>
@@ -16,7 +24,7 @@ include('header.php');  // Include your header file
                 <div class="product-item">
                     <img src="<?php echo htmlspecialchars($product['image']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" class="product-image">
                     <h3><?php echo htmlspecialchars($product['name']); ?></h3>
-                    <p>Price: $<?php echo number_format($product['price'], 2); ?></p>
+                    <p>Price: Rs<?php echo number_format($product['price'], 2); ?></p>
 
                     <!-- Form to add product to the cart -->
                     <form action="add_cart.php" method="POST">

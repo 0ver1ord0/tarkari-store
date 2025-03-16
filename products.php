@@ -12,11 +12,11 @@ include('header.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vegetables Shop</title>
-    <!-- Link to external CSS file -->
-    <link rel="stylesheet" href="products.css">
+    <!-- Ensure products.css is loaded after styles.css -->
+    <link rel="stylesheet" href="css/prodcuts.css?v=1.0">
 </head>
 
-<main>
+<main class="product-page"> <!-- Added class for product-specific styles -->
     <section id="products">
         <?php
         // Fetch products from the database
@@ -26,7 +26,7 @@ include('header.php');
             <div class="product">
                 <img src="<?php echo $product['image']; ?>" alt="<?php echo $product['name']; ?>">
                 <h2><?php echo $product['name']; ?></h2>
-                <p>Price: $<?php echo number_format($product['price'], 2); ?></p>
+                <p>Price: Rs<?php echo number_format($product['price'], 2); ?></p>
                 <form action="add_cart.php" method="POST">
                     <label for="quantity-<?php echo $product['vegetable_id']; ?>">Enter Quantity (in kg):</label>
                     <input type="number" name="quantity" id="quantity-<?php echo $product['vegetable_id']; ?>" placeholder="e.g., 5" min="1" required>
@@ -38,7 +38,6 @@ include('header.php');
         }
         ?>
     </section>
-
     <section id="cart-summary">
         <h3>Your Cart</h3>
         <ul>
@@ -48,17 +47,16 @@ include('header.php');
                 foreach ($_SESSION['cart'] as $productId => $product) {
                     $subtotal = $product['price'] * $product['quantity'];
                     $totalPrice += $subtotal;
-                    echo "<li>{$product['name']} - {$product['quantity']} kg - $ {$subtotal}</li>";
+                    echo "<li>{$product['name']} - {$product['quantity']} kg - Rs {$subtotal}</li>";
                 }
             } else {
                 echo "<p>Your cart is empty.</p>";
             }
             ?>
         </ul>
-        <p><strong>Total Price: $<?php echo number_format($totalPrice, 2); ?></strong></p>
+        <p><strong>Total Price: Rs<?php echo number_format($totalPrice, 2); ?></strong></p>
     </section>
 </main>
-
 
 <?php
 // Include the footer

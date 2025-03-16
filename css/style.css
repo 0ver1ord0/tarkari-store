@@ -10,7 +10,7 @@ body {
     background-repeat: no-repeat;
 }
 
-/* Container */
+/* Container for layout */
 .container {
     width: 80%;
     margin: auto;
@@ -26,6 +26,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap; /* Allow wrapping for responsiveness */
 }
 
 /* Logo/Branding */
@@ -33,11 +34,14 @@ header #branding {
     font-size: 30px;
     font-weight: bold;
     padding-left: 20px;
+    flex: 1;
+    text-align: left;
 }
 
-/* Navbar (Horizontal, Left-Side) */
+/* Navbar */
 .navbar {
     margin-left: 20px; /* Adds space from the left edge */
+    flex: 2;
 }
 
 .navbar ul {
@@ -45,6 +49,7 @@ header #branding {
     padding: 0;
     margin: 0;
     display: flex; /* Align items horizontally */
+    justify-content: flex-end; /* Align to the right */
 }
 
 .navbar ul li {
@@ -76,6 +81,12 @@ header #branding {
     width: 100%;
 }
 
+/* Navbar active link */
+.navbar ul li a.active {
+    font-weight: bold;
+    color: orangered;
+}
+
 /* Footer */
 footer {
     text-align: center;
@@ -83,4 +94,43 @@ footer {
     background: rgba(0, 0, 0, 0.9);
     color: white;
     margin-top: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Stack logo and navbar vertically */
+        align-items: center;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        margin-top: 15px;
+    }
+
+    .navbar ul li {
+        margin-bottom: 10px;
+    }
+
+    .navbar ul li a {
+        font-size: 16px; /* Slightly smaller font for mobile */
+    }
+
+    /* Adjust logo size on smaller screens */
+    header #branding {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar ul li {
+        margin-bottom: 8px;
+    }
+
+    .navbar ul li a {
+        font-size: 14px;
+    }
 }
