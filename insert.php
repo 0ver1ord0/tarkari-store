@@ -13,19 +13,32 @@ $vegetables = [
     ['Capscium', 60, 'Capscium.jpg'],
     ['Peas', 60, 'Peas.jpg'],
     ['Garlic', 60, 'Garlic.jpg'],
-    ['Cabbage', 60, 'cabbage.jpg']
+    ['Cabbage', 60, 'cabbage.jpg'],
+    ['Pumpkin', 60, 'Pumpkin.jpg'],
+    ['Raddish', 60, 'Radish.jpg'],
+    ['Beans', 60, 'Beans.jpg'],
+    ['Taaro leaves', 60, 'TaaroLeaves.jpg']
 ];
 
 // Insert each vegetable into the database
 foreach ($vegetables as $vegetable) {
     $name = $vegetable[0];
     $price = $vegetable[1];
-    $image = $vegetable[2];
-    
-    // Prepare and execute the insert query
-    $stmt = $pdo->prepare("INSERT INTO vegetables (name, price, image) VALUES (:name, :price, :image)");
-    $stmt->execute(['name' => $name, 'price' => $price, 'image' => $image]);
-}
+    $image = 'picture/' . $vegetable[2];  // Correct path to the image
 
-echo "Vegetables inserted successfully!";
+    // Check if the vegetable already exists in the database
+    $stmt = $pdo->prepare("SELECT COUNT(*) FROM vegetables WHERE name = :name");
+    $stmt->execute(['name' => $name]);
+    $exists = $stmt->fetchColumn();
+
+    if ($exists == 0) {
+        // Prepare and execute the insert query if the vegetable doesn't exist
+        $stmt = $pdo->prepare("INSERT INTO vegetables (name, price, image) VALUES (:name, :price, :image)");
+        $stmt->execute(['name' => $name, 'price' => $price, 'image' => $image]);
+        echo "{$name} inserted successfully!<br>";
+    } else {
+        // If vegetable already exists, skip insertion
+        echo "{$name} already exists in the database!<br>";
+    }
+}
 ?>
